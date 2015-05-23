@@ -48,3 +48,6 @@ This repo is hardcoded to use 1.4.2.
 Any contributions are welcome. Please just fork the repo and submit a pull
 request when complete.
 
+## Credit
+Initial idea came from
+https://github.com/dcoxall/vagrant-golang
