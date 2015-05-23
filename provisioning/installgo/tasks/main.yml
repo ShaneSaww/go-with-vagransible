@@ -1,0 +1,19 @@
+---
+- name: GIT
+  apt: pkg=git state=latest
+  sudo: yes
+
+- name: get go
+  get_url: url={{ go_download_location }} dest=/usr/local/src/{{ go_tarball }} sha256sum={{ go_tarball_checksum }} force=yes
+
+- name: untar that 
+  unarchive: src=/usr/local/src/{{ go_tarball }} dest=/usr/local mode=755 copy=no
+
+- name: Errbody gets go 
+  lineinfile: dest=/etc/profile line="export PATH=$PATH:/usr/local/go/bin"
+
+- name: set paths
+  lineinfile: dest=/etc/profile line="export GOPATH=$HOME/go"
+- lineinfile: dest=/etc/profile line="export PATH=$GOPATH/bin:$PATH"
+
+#cat /usr/local/src/go1.4.2.linux-amd64.tar.gz

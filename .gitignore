@@ -1,0 +1,4 @@
+.vagrant
+# exclude in go besides the hello directory
+/go/*
+!/go/src/hello
